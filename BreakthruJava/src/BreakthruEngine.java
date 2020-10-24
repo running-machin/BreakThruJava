@@ -29,7 +29,8 @@ public class BreakthruEngine {
 	static int secondMove =0;
 	public static void main(String[] args) {
 		while (!"K".equals(chessBoard[KingPositionC/11][KingPositionC%11])) {KingPositionC++;}
-		//makeMove("/5/5/5/7/-");
+		makeMove("555a");
+		makeMove("a091p");
 		for (int i=0;i<11;i++) {
             System.out.println(Arrays.toString(chessBoard[i]));
         }
@@ -39,25 +40,26 @@ public class BreakthruEngine {
 	public static void makeMove(String move) {
 		chessBoard[Character.getNumericValue(move.charAt(2))][Character.getNumericValue(move.charAt(3))]=chessBoard[Character.getNumericValue(move.charAt(0))][Character.getNumericValue(move.charAt(1))];
 		chessBoard[Character.getNumericValue(move.charAt(0))][Character.getNumericValue(move.charAt(1))]="-";
-		
-		if (move.charAt(4)!='K') {
-			secondMove +=1;
-		}
-		if (secondMove ==2) {
-			secondMove = 0;
-		}
+//		if (move.charAt(4)!='K') {
+//			secondMove +=1;
+//		}
+//		if (secondMove ==2) {
+//			secondMove = 0;
+//		}
 	}	
 	public static void undoMove(String move) {
 
 		chessBoard[Character.getNumericValue(move.charAt(0))][Character.getNumericValue(move.charAt(1))]=chessBoard[Character.getNumericValue(move.charAt(2))][Character.getNumericValue(move.charAt(3))];
 		chessBoard[Character.getNumericValue(move.charAt(2))][Character.getNumericValue(move.charAt(3))]=String.valueOf(move.charAt(4));
-		if (move.charAt(4)!='K') {
-			secondMove = 0;
-		} else if (secondMove == 0) {
-			secondMove = 1;
-			
-			
-		} 
+		chessBoard[Character.getNumericValue(move.charAt(0))][Character.getNumericValue(move.charAt(1))]=chessBoard[Character.getNumericValue(move.charAt(2))][Character.getNumericValue(move.charAt(3))];
+		chessBoard[Character.getNumericValue(move.charAt(2))][Character.getNumericValue(move.charAt(3))]=String.valueOf(move.charAt(4));
+//		if (move.charAt(4)!='K') {
+//			secondMove = 0;
+//		} else if (secondMove == 0) {
+//			secondMove = 1;
+//			
+//			
+//		} 
 	}
 	public static String  possibleMoves() {
 		String 	list = "";
@@ -86,7 +88,6 @@ public class BreakthruEngine {
                     chessBoard[r][c]="-";
                     chessBoard[r][c+temp*j]="R";
                     if (kingSafe()) {
-                    	System.out.println(c);
                         //list=list+r+c+r+(c+temp*j)+OldPiece;
                         list=list+Integer.toHexString(r)+Integer.toHexString(c)+Integer.toHexString(r)+Integer.toHexString(c+temp*j)+OldPiece;
                         
