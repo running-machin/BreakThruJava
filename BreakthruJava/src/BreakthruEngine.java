@@ -87,7 +87,7 @@ public class BreakthruEngine {
                     chessBoard[r][c+temp*j]="R";
                     if (kingSafe()) {
                     	System.out.println(c);
-                        list=list+r+c+r+(c+temp*j)+OldPiece;
+                        //list=list+r+c+r+(c+temp*j)+OldPiece;
                         list=list+Integer.toHexString(r)+Integer.toHexString(c)+Integer.toHexString(r)+Integer.toHexString(c+temp*j)+OldPiece;
                         
                     }
@@ -104,7 +104,7 @@ public class BreakthruEngine {
                     chessBoard[r][c]="-";
                     chessBoard[r+temp*j][c]="R";
                     if (kingSafe()) {
-                        list=list+r+c+(r+temp*j)+c+OldPiece;
+                        //list=list+r+c+(r+temp*j)+c+OldPiece;
                         list=list+Integer.toHexString(r)+Integer.toHexString(c)+Integer.toHexString(r+temp*j)+Integer.toHexString(c)+OldPiece;
                     }
                     chessBoard[r][c]="R";
@@ -120,7 +120,7 @@ public class BreakthruEngine {
 						chessBoard[r][c]="-";
 						chessBoard[r+j][c+k]="R";
 						if (kingSafe()) {
-							list = list+r+c+(r+j)+(c+k)+OldPiece;
+							//list = list+r+c+(r+j)+(c+k)+OldPiece;
 							list = list +Integer.toHexString(r)+Integer.toHexString(c)+Integer.toHexString(r+j)+Integer.toHexString(c+k)+OldPiece;
 							
 						}
@@ -145,8 +145,8 @@ public class BreakthruEngine {
                     chessBoard[r][c]="-";
                     chessBoard[r][c+temp*j]="K";
                     if (kingSafe()) {
-                        list=list+r+c+r+(c+temp*j)+OldPiece;
-                        list = list+Integer.toHexString(r)+Integer.toHexString(c)+Integer.toHexString(r)+Integer.toHexString(c*temp*j)+OldPiece;
+                        //list=list+r+c+r+(c+temp*j)+OldPiece;
+                        list = list+Integer.toHexString(r)+Integer.toHexString(c)+Integer.toHexString(r)+Integer.toHexString(Math.abs(c*temp*j))+OldPiece;
                         
                     }
                     chessBoard[r][c]="K";
@@ -162,7 +162,7 @@ public class BreakthruEngine {
                     chessBoard[r][c]="-";
                     chessBoard[r+temp*j][c]="K";
                     if (kingSafe()) {
-                        list=list+r+c+(r+temp*j)+c+OldPiece;
+                        //list=list+r+c+(r+temp*j)+c+OldPiece;
                         list= list+Integer.toHexString(r)+Integer.toHexString(c)+Integer.toHexString(r+temp*j)+Integer.toHexString(c)+OldPiece;
                     }
                     chessBoard[r][c]="K";
@@ -178,7 +178,7 @@ public class BreakthruEngine {
 						chessBoard[r][c]="-";
 						chessBoard[r+j][c+k]="K";
 						if (kingSafe()) {
-							list = list+r+c+(r+j)+(c+k)+OldPiece;
+							//list = list+r+c+(r+j)+(c+k)+OldPiece;
 							list = list+Integer.toHexString(r)+Integer.toHexString(c)+Integer.toHexString(r+j)+Integer.toHexString(c+k)+OldPiece;
 									
 						}
