@@ -51,7 +51,7 @@ public class BreakthruEngine {
 	public static String alphaBeta(int depth,int beta, int alpha,String move, int player) {
 		 //return in the form of 1234b##########
        String list=possibleMoves();
-       if (depth==0 || list.length()==0) {return move+(rating()*(player*2-1));}
+       if (depth==0 || list.length()==0) {return move+(rating.rating(list.length(),depth)*(player*2-1));}
        //sort later
        player=1-player;//either 1 or 0
        for (int i=0;i<list.length();i+=5) {
@@ -100,8 +100,9 @@ public class BreakthruEngine {
 		
 //		if (move.charAt(4)!='K') {
 //			secondMove +=1;
-//		}
+//		}else {secondMove=2;}
 //		if (secondMove ==2) {
+//			makeMove(move);
 //			secondMove = 0;
 //		}
 	}	
@@ -112,13 +113,15 @@ public class BreakthruEngine {
 		if ("K".equals(chessBoard[Character.getNumericValue(move.charAt(0))][Character.getNumericValue(move.charAt(1))])) {
             KingPositionC=8*Character.getNumericValue(move.charAt(0))+Character.getNumericValue(move.charAt(1));
         }
-//		if (move.charAt(4)!='K') {
-//			secondMove = 0;
+//		if (secondMove==1 && move.charAt(4)!='K') {
+//			secondMove -=1;
 //		} else if (secondMove == 0) {
-//			secondMove = 1;
+//			secondMove = 1;}
 //			
-//			
-//		} 
+			
+			
+			
+		 
 	}
 	public static int rating() {
 		return 0;
